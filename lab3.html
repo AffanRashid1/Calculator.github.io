@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Your Values</title>
+    <link rel="shortcut icon" href="/icon.png" type="image/x-icon">
+</head>
+<style>
+    * {
+        text-align: center;
+        background-color: rgb(151, 36, 58);
+    }
+
+    .container {
+        background-color: #fff;
+        min-width: 35%;
+        height: 250px;
+        padding: 60px 0;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+    }
+
+    input {
+        background-color: #fff;
+        border-radius: 5px;
+        width: 80%;
+        height: 30px;
+        margin: 5px;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        font-size: 20px;
+        font-family: serif;
+    }
+
+    input:focus {
+        outline: rgb(216, 52, 84);
+        border: 1px solid rgb(216, 52, 84);
+
+    }
+
+    .btn {
+        background-color: rgb(216, 52, 84);
+        border: none;
+        border-radius: 5px;
+        padding: 7px 15px;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .btn:hover {
+        background-color: rgb(163, 46, 69);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <input type="number" id="n1" placeholder="VALUE 1"/><br /><br />
+        <input type="number" id="n2" placeholder="VALUE 2"/><br /><br />
+
+        <select id="operators" class="btn">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="/">/</option>
+            <option value="X">X</option>
+        </select>
+        <button class="btn" onclick="calc();">=</button>
+        <br><br>
+        <input type="text" id="result" placeholder="RESULT" readonly />
+        <br><br>
+        <button class="btn" type="button" onclick="ClearFields();">RESET</button>
+    </div>
+
+    <script>
+
+        function calc() {
+            let n1 = parseFloat(document.getElementById('n1').value);
+            let n2 = parseFloat(document.getElementById('n2').value);
+
+            var oper = document.getElementById('operators').value;
+
+            if (oper === '+') {
+                document.getElementById('result').value = n1 + n2;
+            }
+
+            if (oper === '-') {
+                document.getElementById('result').value = n1 - n2;
+            }
+
+            if (oper === '/') {
+                document.getElementById('result').value = n1 / n2;
+            }
+
+            if (oper === 'X') {
+                document.getElementById('result').value = n1 * n2;
+            }
+        }
+        function ClearFields() {
+
+            document.getElementById("n1").value = "";
+            document.getElementById("n2").value = "";
+            document.getElementById("result").value = "";
+        }
+
+    </script>
+</body>
+
+</html>
